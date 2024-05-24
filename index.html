@@ -7,7 +7,61 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    <h1>Hello World</h1>
+    <body class="bg-gray-200 p-14 font-bold ">
+        <!-- head -->
+        <div class="text-center  text-4xl p-4">
+            <h1>Shopping Cart</h1>
+        </div>
+        <div class=" text-xl p-2">
+            <h2>Add Item for selection</h2>
+        </div>
+        <!-- inputform -->
+    <section id="form" class=" flex font-normal  text-sm p-2 ">
+            <div class="flex w-[37.5%]">
+                <label for="productName">Product Name:</label>
+                <input type="text" 
+                name="productName"
+                name="productNameF"  
+                id="productNameF" 
+                required 
+                minlength="3" 
+                maxlength="255"
+                class="border-2 border-zinc-500 rounded w-3/4">
+            </div>
+            <div class="flex w-[25%]">
+                <label for="price">Price:</label>
+                <input 
+                type="number"
+                name="priceF"
+                id="priceF" 
+                required 
+                class="border-2  border-zinc-500 rounded w-3/4">
+            </div>
+            <div class="flex w-[25%]">
+                <label for="imageUrl">Image URL:</label>
+                <input 
+                type="url"
+                name="imageURLF"
+                id="imageUrlF" 
+                required class="border-2   border-zinc-500 rounded w-3/4">
+            </div>
+            <div class="bg-pink-100 border-2  border-zinc-500 rounded text-center font w-[12.5%]">
+                <button id="creat-btn" type="submit">Create Product </button>
+            </div>
+    </section>
+            <p id="errorMessage" class="text-red-500 px-4"></p>
+        </form>
+    
+    <section
+            id="displaySection"
+            class= ></section>
     <script src="/script.js"></script>
+    <div class="p-2">
+        <button id="btnAdd" class="bg-pink-100 border-2  border-zinc-500 rounded text-center px-4">Add to Cart</button>
+    </div>
+    <section
+    id="displaySection"
+    class= 
+></section>
 </body>
 </html>
