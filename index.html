@@ -16,12 +16,12 @@
             <h2>Add Item for selection</h2>
         </div>
         <!-- inputform -->
-    <section id="form" class=" flex font-normal  text-sm p-2 ">
+    <form id="form" class=" flex font-normal  text-sm p-2 ">
             <div class="flex w-[37.5%]">
-                <label for="productName">Product Name:</label>
-                <input type="text" 
-                name="productName"
-                name="productNameF"  
+                <label for="productNameF">Product Name:</label>
+                <input 
+                type="text" 
+                name="productNameF"
                 id="productNameF" 
                 required 
                 minlength="3" 
@@ -38,30 +38,29 @@
                 class="border-2  border-zinc-500 rounded w-3/4">
             </div>
             <div class="flex w-[25%]">
-                <label for="imageUrl">Image URL:</label>
+                <label for="imageUrl">Image:</label>
                 <input 
                 type="url"
-                name="imageURLF"
+                name="imageUrlF"
                 id="imageUrlF" 
                 required class="border-2   border-zinc-500 rounded w-3/4">
             </div>
-            <div class="bg-pink-100 border-2  border-zinc-500 rounded text-center font w-[12.5%]">
+            <div class="bg-pink-100 border-2  border-zinc-500 rounded text-center font-bold w-[12.5%]">
                 <button id="creat-btn" type="submit">Create Product </button>
             </div>
-    </section>
-            <p id="errorMessage" class="text-red-500 px-4"></p>
         </form>
+    <section>
+    <p id="errorMessage" class="text-red-500 px-4"></p>
+    </section>
     
     <section
             id="displaySection"
-            class= ></section>
-    <script src="/script.js"></script>
+            class="grid gap-2" >
+    </section>
+    
     <div class="p-2">
         <button id="btnAdd" class="bg-pink-100 border-2  border-zinc-500 rounded text-center px-4">Add to Cart</button>
     </div>
-    <section
-    id="displaySection"
-    class= 
-></section>
+<script src="/script.js"></script>
 </body>
 </html>
