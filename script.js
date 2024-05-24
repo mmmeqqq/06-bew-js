@@ -1,16 +1,13 @@
 //สร้างarrayเปล่าไว้เก็บdata
 let products = [];
 let id = 0;
-
-
+let cart = [];
 //
 document.getElementById('form').addEventListener('submit',(event) => {
     event.preventDefault();
 const productName = document.getElementById('productNameF').value;
 const price = document.getElementById('priceF').value;
 const image = document.getElementById('imageUrlF').value;
-const creatButton = document.getElementById('creat-btn');
-const errorMessage = document.getElementById('errorMessage');
 
 //เก็บค่าไปใส่ใน products
     if (productName && price && image){
@@ -19,12 +16,17 @@ const errorMessage = document.getElementById('errorMessage');
                 name: productName,
                 price: price,
                 img: image,
-                check: false
+                check: false   
+                }
+//check condition img
+                if (!invalidSMS(product)){
+                    return;
                 }
                 products.push(product);
+                console.log(products);
                 displayUpload(product);
-        }
-    ;
+
+        };
 //เอาไปแสดงใน section display
     function displayUpload(product) {
         const displaySection = document.getElementById("displaySection");
@@ -34,7 +36,7 @@ const errorMessage = document.getElementById('errorMessage');
         card.innerHTML = `
         <div class="flex bg-white rounded-lg shadow-lg">
             <div class="flex align-middle pl-2">
-                <input type="checkbox" name="" id="">
+                <input type="checkbox" data-id="${product.id}" onchange="toggleLike(event)">
             </div>
             <div class="w-1/12">
                 <img src="${product.img}" alt="${product.name}" class="w-full aspect-square rounded p-2">
@@ -48,7 +50,14 @@ const errorMessage = document.getElementById('errorMessage');
     `;
         displaySection.appendChild(card);
     }
-
 });
-
-console.log(products); 
+//invalid
+function invalidSMS(product) {
+    const errorMessage = document.getElementById('errorMessage');
+    if (!product.img.endsWith('.jpg') && !product.img.endsWith('.png') && !product.img.endsWith('.gif')) {
+        errorMessage.textContent = 'Image URL must end with .jpg, .png, or .gif';
+        return false;
+    }
+    errorMessage.textContent = ''; // Clear error message if URL is valid
+    return true;
+}
